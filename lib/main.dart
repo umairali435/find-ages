@@ -1,4 +1,5 @@
 import 'package:findages/pages/home_screen.dart';
+import 'package:findages/providers/database_provider.dart';
 import 'package:findages/providers/date_provider.dart';
 import 'package:findages/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => DateProvider()),
+        ChangeNotifierProvider(create: (context) => DatabaseProvider()),
       ],
       child: const MyApp(),
     ),
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Find Ages',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primaryColor,

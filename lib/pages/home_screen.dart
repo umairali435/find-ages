@@ -1,11 +1,15 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:findages/logics/comp_logic.dart';
 import 'package:findages/pages/calculated_age.dart';
+import 'package:findages/pages/drawer_screen.dart';
+import 'package:findages/pages/history_scareen.dart';
+import 'package:findages/providers/database_provider.dart';
 import 'package:findages/providers/date_provider.dart';
 import 'package:findages/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,13 +18,30 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dateProvider = Provider.of<DateProvider>(context);
+    final databaseProvider = Provider.of<DatabaseProvider>(context);
     return Scaffold(
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text(
           "Find Ages",
           style: TextStyle(
             color: AppColors.whiteColor,
           ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const HistoryScreen(),
+                ),
+              );
+            },
+            icon: const Icon(LucideIcons.history),
+          ),
+        ],
+        iconTheme: const IconThemeData(
+          color: AppColors.whiteColor,
         ),
         backgroundColor: AppColors.primaryColor,
       ),
@@ -57,6 +78,7 @@ class HomeScreen extends StatelessWidget {
                   DateTime.now(),
                 );
                 dateProvider.ageDateDate = ageDate;
+                databaseProvider.agesModel.age = ageDate.year;
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => const CalculatedAge(),

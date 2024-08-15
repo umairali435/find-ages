@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DateProvider extends ChangeNotifier {
-  DateTime _initialDate = DateTime(1990, 7, 12);
+  DateTime _initialDate = DateTime(1995, 8, 8);
   DateTime get initialDate => _initialDate;
   set initialDate(DateTime date) {
     _initialDate = date;

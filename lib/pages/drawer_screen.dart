@@ -22,7 +22,7 @@ class CustomDrawer extends StatelessWidget {
     }
 
     void launchAppStore() {
-      Share.share("""You can find Find Ages https://apps.apple.com/store/apps/details?id=com.irfan.findages""");
+      Share.share("""You can find Edad Age Mate https://apps.apple.com/store/apps/details?id=com.sulemam.edad""");
     }
 
     return Container(
@@ -40,7 +40,7 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             const Text(
-              "Streaks Mate",
+              "Edad Age Mate",
               style: TextStyle(
                 fontSize: 24.0,
                 color: AppColors.primaryColor,

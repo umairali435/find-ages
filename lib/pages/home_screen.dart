@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
       drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text(
-          "Find Ages",
+          "Edad Age Mate",
           style: TextStyle(
             color: AppColors.whiteColor,
           ),
